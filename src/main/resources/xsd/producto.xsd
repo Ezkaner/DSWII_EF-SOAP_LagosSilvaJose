@@ -1,0 +1,78 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://www.cibertec.edu.pe/ws/object"
+           targetNamespace="http://www.cibertec.edu.pe/ws/object"
+           elementFormDefault="qualified">
+
+    <!--Modelo Producto-->
+    <xs:complexType name="productows">
+        <xs:sequence>
+            <xs:element name="id" type="xs:int"/>
+            <xs:element name="nombre" type="xs:string"/>
+            <xs:element name="descripcion" type="xs:string"/>
+            <xs:element name="precio" type="xs:double"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!--POST Producto-->
+    <xs:element name="postProductoRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="producto" type="tns:productows"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="postProductoResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="producto" type="tns:productows"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!--PUT Producto-->
+    <xs:element name="putProductoRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="producto" type="tns:productows"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="putProductoResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="producto" type="tns:productows"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!--Producto busqueda general-->
+    <xs:element name="getProductosRequest">
+        <xs:complexType>
+            <xs:sequence/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getProductosResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="producto" type="tns:productows" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!--Producto busqueda por ID-->
+    <xs:element name="getProductoRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getProductoResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="producto" type="tns:productows"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
